@@ -1,12 +1,13 @@
 <template>
     <select :data-placeholder="placeholder" :multiple="multiple" :disabled="disabled">
-        <option v-for="option in localOptions" v-bind:value="option[trackBy]">
+        <option v-for="(option,i) in localOptions" :key="i" :value="option[trackBy]">
             {{ option[label] }}
         </option>
     </select>
 </template>
 
 <script>
+    import './bootstrap-chosen.css'
     export default {
         props: {
             value: {
